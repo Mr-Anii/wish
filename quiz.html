@@ -1,0 +1,1371 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Love Quiz ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ff79ad;
+    --rose: #c53c79;
+    --gold: #f6c987;
+    --cream: #ffe2ee;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    background:
+        radial-gradient(ellipse at 50% 35%, #4d2045, transparent 45%),
+        radial-gradient(ellipse at 10% 10%, #42152e, transparent 35%),
+        linear-gradient(145deg, #100811, #211020, #100916);
+}
+
+button {
+    font-family: inherit;
+}
+
+/* BACKGROUND GLOW */
+
+.glow {
+    position: fixed;
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: .22;
+    pointer-events: none;
+    animation: glowMove 12s infinite alternate;
+}
+
+.glow.one {
+    background: #ff398a;
+    top: 5%;
+    left: -160px;
+}
+
+.glow.two {
+    background: #984cff;
+    right: -150px;
+    bottom: 5%;
+}
+
+@keyframes glowMove {
+    to {
+        transform: translate(100px, 90px) scale(1.3);
+    }
+}
+
+/* PARTICLES */
+
+#particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    bottom: -30px;
+    color: #ff9fc9;
+    text-shadow: 0 0 12px #ff5b9e;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    15% {
+        opacity: .8;
+    }
+    85% {
+        opacity: .6;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* HEADER */
+
+.topbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 22px 7%;
+}
+
+.brand {
+    font-family: 'Great Vibes', cursive;
+    font-size: 29px;
+    color: #ffc4dd;
+    text-shadow: 0 0 15px #ff5b9e;
+}
+
+.back-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    padding: 10px 20px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 30px;
+    background: rgba(255,255,255,.05);
+    transition: .3s;
+    white-space: nowrap;
+}
+
+.back-btn:hover {
+    background: #e94f91;
+    box-shadow: 0 0 20px #e94f91;
+}
+
+/* MUSIC BUTTON */
+
+.music-control {
+    position: fixed;
+    z-index: 30;
+    right: 18px;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,190,220,.5);
+    background: rgba(50,18,46,.88);
+    color: #ffd0e3;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255,80,150,.3);
+    backdrop-filter: blur(12px);
+    transition: .3s;
+}
+
+.music-control:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255,80,150,.7);
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 35px 20px 20px;
+}
+
+.hero .eyebrow {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--gold);
+}
+
+.hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    font-size: clamp(55px, 9vw, 90px);
+    color: #ffd3e5;
+    text-shadow: 0 0 30px rgba(255,91,158,.5);
+    margin-top: 12px;
+    animation: titleIn 1.2s both;
+}
+
+.hero h1 span {
+    color: var(--pink);
+}
+
+.hero p {
+    font-size: 11px;
+    color: #d8b8ca;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+@keyframes titleIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* QUIZ CONTAINER */
+
+.quiz-area {
+    position: relative;
+    z-index: 2;
+    width: min(92%, 690px);
+    margin: 25px auto 90px;
+}
+
+/* GLASS CARD */
+
+.quiz-card {
+    position: relative;
+    overflow: hidden;
+    padding: 35px;
+    border: 1px solid rgba(255,190,220,.3);
+    border-radius: 28px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,100,160,.16), transparent 50%),
+        linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.025));
+    backdrop-filter: blur(18px);
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.3),
+        0 0 50px rgba(255,75,145,.1),
+        inset 0 1px rgba(255,255,255,.1);
+}
+
+.quiz-card::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -80px;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: #ff4b96;
+    filter: blur(100px);
+    opacity: .16;
+    pointer-events: none;
+}
+
+/* TOP META */
+
+.quiz-meta {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.quiz-label {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.question-number {
+    color: #f6c987;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* PROGRESS */
+
+.progress-track {
+    height: 5px;
+    width: 100%;
+    border-radius: 20px;
+    background: rgba(255,255,255,.1);
+    overflow: hidden;
+    margin-bottom: 35px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 10%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #ff5b9e, #f6c987);
+    box-shadow: 0 0 15px #ff5b9e;
+    transition: width .6s ease;
+}
+
+/* QUESTION */
+
+.question-icon {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 22px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 37px;
+    background: linear-gradient(145deg, rgba(255,130,180,.24), rgba(180,65,125,.1));
+    border: 1px solid rgba(255,190,220,.3);
+    box-shadow: 0 0 30px rgba(255,91,158,.16);
+    animation: floatIcon 3s infinite ease-in-out;
+}
+
+@keyframes floatIcon {
+    50% {
+        transform: translateY(-8px) rotate(5deg);
+    }
+}
+
+.question-title {
+    position: relative;
+    text-align: center;
+    color: #ffe0ed;
+    font-size: clamp(18px, 3vw, 23px);
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    min-height: 70px;
+}
+
+/* OPTIONS */
+
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 66px;
+    padding: 14px;
+    color: #f5dce9;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.5;
+    border: 1px solid rgba(255,190,220,.18);
+    border-radius: 15px;
+    background: rgba(255,255,255,.045);
+    cursor: pointer;
+    transition: .3s;
+    overflow: hidden;
+    animation: optionIn .45s both;
+    animation-delay: calc(var(--i) * 90ms);
+}
+
+@keyframes optionIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.option:hover:not(:disabled) {
+    transform: translateY(-4px);
+    border-color: rgba(255,135,185,.7);
+    background: rgba(255,100,160,.12);
+    box-shadow: 0 10px 25px rgba(255,75,145,.12);
+}
+
+.option .letter {
+    flex-shrink: 0;
+    width: 29px;
+    height: 29px;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    background: rgba(255,255,255,.1);
+    color: #ffc1d9;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.option.selected {
+    border-color: #ff8bb9;
+    background: rgba(255,90,150,.18);
+    box-shadow: 0 0 20px rgba(255,91,158,.18);
+}
+
+.option.correct {
+    border-color: #f6c987;
+    background: rgba(246,201,135,.15);
+    box-shadow: 0 0 20px rgba(246,201,135,.12);
+}
+
+.option.wrong {
+    border-color: #ff8aab;
+    background: rgba(255,80,130,.1);
+    animation: wrongShake .45s;
+}
+
+@keyframes wrongShake {
+    0%,100% { transform: translateX(0); }
+    20%,60% { transform: translateX(-7px); }
+    40%,80% { transform: translateX(7px); }
+}
+
+.option:disabled {
+    cursor: default;
+}
+
+/* FEEDBACK */
+
+.feedback {
+    min-height: 50px;
+    margin-top: 22px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #ffd0e2;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: .3s;
+}
+
+.feedback.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ACTION BUTTON */
+
+.action-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.main-btn {
+    min-width: 190px;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff79ad, #b93c78);
+    box-shadow: 0 0 25px rgba(255,85,155,.3);
+    transition: .3s;
+}
+
+.main-btn:hover:not(:disabled) {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 0 35px rgba(255,85,155,.7);
+}
+
+.main-btn:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+/* QUESTION TRANSITION */
+
+.question-content {
+    animation: questionIn .65s both;
+}
+
+@keyframes questionIn {
+    0% {
+        opacity: 0;
+        transform: translateY(35px) scale(.94);
+        filter: blur(8px);
+    }
+    70% {
+        opacity: 1;
+        filter: blur(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* FEEDBACK OVERLAY */
+
+.feedback-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(8,3,12,.76);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.feedback-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.feedback-pop {
+    width: min(100%, 390px);
+    text-align: center;
+    padding: 35px 25px;
+    border-radius: 26px;
+    border: 1px solid rgba(255,190,220,.4);
+    background:
+        radial-gradient(circle at top, rgba(255,100,160,.22), transparent 65%),
+        linear-gradient(145deg, #32152f, #170d21);
+    box-shadow: 0 0 70px rgba(255,70,145,.25);
+    transform: scale(.6) rotate(-5deg);
+    transition: .45s cubic-bezier(.2,.9,.3,1.3);
+}
+
+.feedback-overlay.active .feedback-pop {
+    transform: scale(1) rotate(0);
+}
+
+.feedback-overlay.good .feedback-pop {
+    border-color: rgba(255,207,230,.7);
+    box-shadow: 0 0 70px rgba(255,91,158,.45);
+}
+
+.feedback-overlay.bad .feedback-pop {
+    border-color: rgba(255,110,145,.8);
+    box-shadow: 0 0 70px rgba(255,30,90,.4);
+    animation: angryShake .55s;
+}
+
+@keyframes angryShake {
+    0%,100% { transform: translateX(0) scale(1); }
+    15%,45%,75% { transform: translateX(-8px) scale(1.02); }
+    30%,60%,90% { transform: translateX(8px) scale(1.02); }
+}
+
+.feedback-face {
+    font-size: 75px;
+    display: block;
+    margin-bottom: 12px;
+    animation: facePop .65s both;
+    filter: drop-shadow(0 0 20px rgba(255,100,160,.6));
+}
+
+@keyframes facePop {
+    0% {
+        transform: scale(.2) rotate(-30deg);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.2) rotate(8deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.feedback-pop h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    font-weight: 400;
+    color: #ffd0e3;
+    margin-bottom: 12px;
+}
+
+.feedback-pop p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #f2dce8;
+}
+
+.feedback-sparkles {
+    font-size: 22px;
+    margin-top: 18px;
+    letter-spacing: 8px;
+    animation: sparklePulse 1s infinite alternate;
+}
+
+@keyframes sparklePulse {
+    to {
+        transform: scale(1.12);
+        opacity: .65;
+    }
+}
+
+/* RESULT */
+
+.result-screen {
+    display: none;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 15px 0;
+    animation: questionIn .8s both;
+}
+
+.result-icon {
+    font-size: 70px;
+    filter: drop-shadow(0 0 20px #ff7bab);
+    animation: resultBeat 2s infinite;
+}
+
+@keyframes resultBeat {
+    50% {
+        transform: scale(1.15) rotate(5deg);
+    }
+}
+
+.result-screen h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #ffd0e3;
+    font-size: 58px;
+    font-weight: 400;
+    margin: 15px 0;
+}
+
+.score {
+    font-size: 48px;
+    color: var(--gold);
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(246,201,135,.3);
+}
+
+.result-screen p {
+    color: #e7c9d9;
+    font-size: 13px;
+    line-height: 2;
+    max-width: 440px;
+    margin: 18px auto;
+}
+
+.result-quote {
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+    color: #ffb4d0;
+    margin: 25px 0;
+}
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.secondary-btn {
+    border: 1px solid rgba(255,190,220,.35);
+    color: #ffe0ed;
+    background: rgba(255,255,255,.05);
+    border-radius: 50px;
+    padding: 14px 22px;
+    font-size: 11px;
+    text-decoration: none;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.secondary-btn:hover {
+    background: rgba(255,100,160,.18);
+    transform: translateY(-3px);
+}
+
+/* FOOTER */
+
+footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 25px;
+    color: #a9889d;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* MOBILE */
+
+@media(max-width: 600px) {
+    .topbar {
+        padding: 18px 5%;
+    }
+
+    .brand {
+        font-size: 24px;
+    }
+
+    .hero {
+        padding-top: 35px;
+    }
+
+    .quiz-card {
+        padding: 25px 17px;
+    }
+
+    .options {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .option {
+        min-height: 58px;
+    }
+
+    .question-icon {
+        width: 72px;
+        height: 72px;
+        font-size: 31px;
+    }
+
+    .question-title {
+        font-size: 18px;
+    }
+
+    .feedback-pop {
+        padding: 30px 20px;
+    }
+
+    .feedback-face {
+        font-size: 65px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow one"></div>
+<div class="glow two"></div>
+<div id="particles"></div>
+
+<!-- MUSIC -->
+<audio id="backgroundMusic" src="music/song2.mp3" loop preload="auto"></audio>
+<button class="music-control" id="musicButton" aria-label="Toggle music">♫</button>
+
+<header class="topbar">
+    <div class="brand">Tabrez & Gufrana</div>
+    <a href="love-card.html" class="back-btn">← Previous Page</a>
+</header>
+
+<section class="hero">
+    <div class="eyebrow">A LITTLE GAME FOR TWO HEARTS</div>
+    <h1>How Well <span>Do You Know Us?</span></h1>
+    <p>10 QUESTIONS · 1 SPECIAL STORY · INFINITE LOVE</p>
+</section>
+
+<main class="quiz-area">
+    <section class="quiz-card">
+
+        <div id="quizContent">
+
+            <div class="quiz-meta">
+                <span class="quiz-label">♡ OUR LITTLE LOVE QUIZ</span>
+                <span class="question-number" id="questionNumber">01 / 10</span>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="question-content" id="questionContent">
+
+                <div class="question-icon" id="questionIcon">💗</div>
+
+                <h2 class="question-title" id="questionTitle">
+                    Humari story ka sabse special part kya hai?
+                </h2>
+
+                <div class="options" id="options"></div>
+
+                <div class="feedback" id="feedback"></div>
+
+                <div class="action-row">
+                    <button class="main-btn" id="nextBtn" disabled>
+                        Select Your Answer ♡
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RESULT -->
+
+        <div class="result-screen" id="resultScreen">
+
+            <div class="result-icon">💖</div>
+
+            <h2>Quiz Complete!</h2>
+
+            <div class="score" id="score">0 / 10</div>
+
+            <p id="resultMessage"></p>
+
+            <div class="result-quote">
+                "Tumhara hona hi meri favourite feeling hai."
+            </div>
+
+            <div class="result-actions">
+                <button class="main-btn" id="restartBtn">
+                    Play Again ↻
+                </button>
+
+                <a href="love-cards.html" class="secondary-btn">
+                    One More Surprise ♡
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    MADE WITH LOVE · TABREZ & GUFRANA ♥
+</footer>
+
+<!-- ANSWER FEEDBACK POPUP -->
+
+<div class="feedback-overlay" id="feedbackOverlay">
+    <div class="feedback-pop">
+        <span class="feedback-face" id="feedbackFace">🥰</span>
+        <h2 id="feedbackHeading">Perfect, jaan!</h2>
+        <p id="feedbackMessage"></p>
+        <div class="feedback-sparkles" id="feedbackSparkles">♡ ✨ ♡</div>
+    </div>
+</div>
+
+<script>
+
+/* FLOATING PARTICLES */
+
+const particleArea = document.getElementById("particles");
+const particleSymbols = ["♡", "♥", "✦", "✧", "❀", "💗"];
+
+for (let i = 0; i < 35; i++) {
+    const item = document.createElement("span");
+    item.className = "particle";
+    item.textContent = particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
+    item.style.left = Math.random() * 100 + "%";
+    item.style.animationDuration = (8 + Math.random() * 12) + "s";
+    item.style.animationDelay = Math.random() * 12 + "s";
+    item.style.fontSize = (12 + Math.random() * 18) + "px";
+    particleArea.appendChild(item);
+}
+
+/* MUSIC CONTINUITY */
+
+const audio = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+const MUSIC_KEY = "ourStoryMusicTime";
+
+let musicStarted = false;
+
+function saveMusicTime() {
+    if (Number.isFinite(audio.currentTime)) {
+        sessionStorage.setItem(MUSIC_KEY, String(audio.currentTime));
+    }
+}
+
+function updateMusicButton() {
+    musicButton.textContent = audio.paused ? "♫" : "♪";
+    musicButton.title = audio.paused ? "Play music" : "Pause music";
+}
+
+function startMusicFromSavedTime() {
+    if (musicStarted) return;
+
+    musicStarted = true;
+
+    const savedTime = parseFloat(sessionStorage.getItem(MUSIC_KEY) || "0");
+
+    if (
+        Number.isFinite(savedTime) &&
+        savedTime >= 0 &&
+        Number.isFinite(audio.duration) &&
+        savedTime < audio.duration
+    ) {
+        audio.currentTime = savedTime;
+    }
+
+    audio.play()
+        .then(updateMusicButton)
+        .catch(updateMusicButton);
+}
+
+audio.addEventListener("loadedmetadata", startMusicFromSavedTime);
+audio.addEventListener("timeupdate", saveMusicTime);
+audio.addEventListener("play", updateMusicButton);
+audio.addEventListener("pause", updateMusicButton);
+window.addEventListener("pagehide", saveMusicTime);
+
+audio.load();
+
+musicButton.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play().then(updateMusicButton).catch(updateMusicButton);
+    } else {
+        audio.pause();
+        saveMusicTime();
+        updateMusicButton();
+    }
+});
+
+/* QUIZ QUESTIONS
+   Correct answer index:
+   0 = first option
+   1 = second option
+   2 = third option
+   3 = fourth option
+*/
+
+const questions = [
+
+    {
+        icon: "💞",
+        question: "Humari relationship ki special date kya hai?",
+        options: [
+            "1 December 2024",
+            "23 April 2024",
+            "4 December 2024",
+            "14 February 2024"
+        ],
+        correct: 1,
+        good: "Yess jaan! 23 April 2024 — humari relationship ki beautiful beginning. 💞",
+        bad: "Arey jaan! Humari relationship date 23 April 2024 hai! 😤💗"
+    },
+
+    {
+        icon: "🌷",
+        question: "Hum pehli baar kis date ko mile the?",
+        options: [
+            "23 April 2024",
+            "1 December 2024",
+            "1 January 2025",
+            "14 February 2024"
+        ],
+        correct: 1,
+        good: "Bilkul! 1 December 2024 — humari first meeting. 🥹❤️",
+        bad: "Gusse wala pyaar! First meet 1 December 2024 ko hui thi! 😠💕"
+    },
+
+    {
+        icon: "📅",
+        question: "Humari first meeting kis din hui thi?",
+        options: [
+            "Monday",
+            "Friday",
+            "Sunday",
+            "Wednesday"
+        ],
+        correct: 2,
+        good: "Yes baby! Sunday ka woh special din. 🌷",
+        bad: "Arre! Woh Sunday tha, jaan! 😤💗"
+    },
+
+    {
+        icon: "🌳",
+        question: "Hum pehli baar kahan mile the?",
+        options: [
+            "College",
+            "Park",
+            "Restaurant",
+            "Shopping mall"
+        ],
+        correct: 1,
+        good: "Exactly! Park mein humari first meeting hui thi. 🌳❤️",
+        bad: "Wrong, sweetheart! Hum park mein mile the! 😠🌷"
+    },
+
+    {
+        icon: "🕑",
+        question: "First meeting ke waqt kitne baje the?",
+        options: [
+            "12 PM",
+            "2 PM",
+            "4 PM",
+            "6 PM"
+        ],
+        correct: 1,
+        good: "Perfect! 2 PM — ek yaadgaar waqt. 🕑💗",
+        bad: "Jaan, 2 PM tha! Itna special time kaise bhool gaye? 😤"
+    },
+
+    {
+        icon: "🚗",
+        question: "First meeting ke din humne kya special kiya tha?",
+        options: [
+            "First movie dekhi",
+            "First shopping ki",
+            "First long drive par gaye",
+            "First party mein gaye"
+        ],
+        correct: 2,
+        good: "Yess! Humari first long drive. 🚗💞",
+        bad: "Sahi jawab first long drive tha! 😠❤️"
+    },
+
+    {
+        icon: "⏳",
+        question: "Humari first long drive lagbhag kitni der ki thi?",
+        options: [
+            "30 minutes",
+            "1 hour",
+            "2 hours",
+            "5 hours"
+        ],
+        correct: 2,
+        good: "Bilkul! Lagbhag 2 hours ki beautiful drive. 🥰",
+        bad: "Jaan, lagbhag 2 hours! Woh drive yaad karo! 😤🚗"
+    },
+
+    {
+        icon: "🫂",
+        question: "First meeting ka ek bahut emotional moment kya tha?",
+        options: [
+            "First hug",
+            "First dance",
+            "First concert",
+            "First game"
+        ],
+        correct: 0,
+        good: "Awww! Humara first hug. 🫂❤️",
+        bad: "First hug tha, baccha! Woh special moment! 😠🥹"
+    },
+
+    {
+        icon: "💗",
+        question: "Humari first meeting ki sabse pyari baat kya thi?",
+        options: [
+            "Bas photos lena",
+            "Saath waqt bitana aur memories banana",
+            "Shopping karna",
+            "Movie dekhna"
+        ],
+        correct: 1,
+        good: "Exactly! Saath bitaya hua waqt hi sabse precious hai. 💗",
+        bad: "Saath bitaya hua waqt aur memories, jaan! ❤️"
+    },
+
+    {
+        icon: "♾️",
+        question: "Humari story ka sabse beautiful next chapter kya hoga?",
+        options: [
+            "Aur bhi memories saath banana",
+            "Sab kuch bhool jaana",
+            "Sirf photos collect karna",
+            "Alag-alag rehna"
+        ],
+        correct: 0,
+        good: "Yess! Abhi toh bahut si memories banana baaki hai. ♾️💞",
+        bad: "Humari story mein aur memories banana baaki hai, jaan! 😤❤️"
+    }
+
+];
+
+/* QUIZ VARIABLES */
+
+let currentQuestion = 0;
+let score = 0;
+let selectedAnswer = null;
+let answered = false;
+let feedbackTimer = null;
+
+const questionNumber = document.getElementById("questionNumber");
+const questionIcon = document.getElementById("questionIcon");
+const questionTitle = document.getElementById("questionTitle");
+const optionsContainer = document.getElementById("options");
+const progressFill = document.getElementById("progressFill");
+const feedback = document.getElementById("feedback");
+const nextBtn = document.getElementById("nextBtn");
+
+const quizContent = document.getElementById("quizContent");
+const resultScreen = document.getElementById("resultScreen");
+
+const feedbackOverlay = document.getElementById("feedbackOverlay");
+const feedbackFace = document.getElementById("feedbackFace");
+const feedbackHeading = document.getElementById("feedbackHeading");
+const feedbackMessage = document.getElementById("feedbackMessage");
+const feedbackSparkles = document.getElementById("feedbackSparkles");
+
+/* LOAD QUESTION WITH ANIMATION */
+
+function loadQuestion() {
+
+    const q = questions[currentQuestion];
+
+    selectedAnswer = null;
+    answered = false;
+
+    questionNumber.textContent =
+        String(currentQuestion + 1).padStart(2, "0") +
+        " / " +
+        String(questions.length).padStart(2, "0");
+
+    progressFill.style.width =
+        ((currentQuestion + 1) / questions.length * 100) + "%";
+
+    questionIcon.textContent = q.icon;
+    questionTitle.textContent = q.question;
+
+    feedback.textContent = "";
+    feedback.classList.remove("show");
+
+    nextBtn.disabled = true;
+    nextBtn.textContent = "Select Your Answer ♡";
+
+    optionsContainer.innerHTML = "";
+
+    const letters = ["A", "B", "C", "D"];
+
+    q.options.forEach((option, index) => {
+
+        const button = document.createElement("button");
+        button.className = "option";
+        button.style.setProperty("--i", index);
+
+        const letter = document.createElement("span");
+        letter.className = "letter";
+        letter.textContent = letters[index];
+
+        const text = document.createElement("span");
+        text.textContent = option;
+
+        button.appendChild(letter);
+        button.appendChild(text);
+
+        button.addEventListener("click", () => {
+            selectAnswer(index);
+        });
+
+        optionsContainer.appendChild(button);
+
+    });
+
+    const content = document.getElementById("questionContent");
+
+    content.style.animation = "none";
+    void content.offsetWidth;
+    content.style.animation = "questionIn .65s both";
+}
+
+/* SELECT ANSWER */
+
+function selectAnswer(index) {
+
+    if (answered) return;
+
+    selectedAnswer = index;
+
+    const buttons = document.querySelectorAll(".option");
+
+    buttons.forEach(button => {
+        button.classList.remove("selected");
+    });
+
+    buttons[index].classList.add("selected");
+
+    nextBtn.disabled = false;
+    nextBtn.textContent = "Lock My Answer 🔒";
+}
+
+/* SHOW ROMANTIC / ANGRY ANIMATION */
+
+function showAnswerReaction(isCorrect, message) {
+
+    feedbackOverlay.classList.remove("good", "bad", "active");
+
+    if (isCorrect) {
+
+        feedbackOverlay.classList.add("good");
+
+        feedbackFace.textContent = "🥰";
+        feedbackHeading.textContent = "Perfect, jaan!";
+        feedbackSparkles.textContent = "♡ ✨ 💖 ✨ ♡";
+
+    } else {
+
+        feedbackOverlay.classList.add("bad");
+
+        feedbackFace.textContent = "😡";
+        feedbackHeading.textContent = "Oyeee, wrong answer!";
+        feedbackSparkles.textContent = "😤 💢 💗 💢 😤";
+
+    }
+
+    feedbackMessage.textContent = message;
+
+    void feedbackOverlay.offsetWidth;
+    feedbackOverlay.classList.add("active");
+}
+
+function hideAnswerReaction() {
+    feedbackOverlay.classList.remove("active", "good", "bad");
+}
+
+/* LOCK ANSWER AND AUTOMATICALLY MOVE */
+
+function checkAnswer() {
+
+    if (selectedAnswer === null || answered) return;
+
+    answered = true;
+
+    const q = questions[currentQuestion];
+    const buttons = document.querySelectorAll(".option");
+
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+
+    const isCorrect = selectedAnswer === q.correct;
+
+    if (isCorrect) {
+
+        score++;
+        buttons[selectedAnswer].classList.add("correct");
+
+        feedback.textContent = "💖 " + q.good;
+
+        showAnswerReaction(true, q.good);
+
+    } else {
+
+        buttons[selectedAnswer].classList.add("wrong");
+        buttons[q.correct].classList.add("correct");
+
+        feedback.textContent = "💕 " + q.bad;
+
+        showAnswerReaction(false, q.bad);
+
+    }
+
+    feedback.classList.add("show");
+
+    nextBtn.disabled = true;
+    nextBtn.textContent = "Answer Locked ♡";
+
+    /*
+       Feedback animation visible for 1.8 seconds.
+       Then automatically loads the next question.
+    */
+
+    clearTimeout(feedbackTimer);
+
+    feedbackTimer = setTimeout(() => {
+
+        hideAnswerReaction();
+
+        if (currentQuestion < questions.length - 1) {
+
+            currentQuestion++;
+            loadQuestion();
+
+        } else {
+
+            showResult();
+
+        }
+
+    }, 1800);
+}
+
+/* LOCK BUTTON */
+
+nextBtn.addEventListener("click", () => {
+
+    if (selectedAnswer === null || answered) return;
+
+    checkAnswer();
+
+});
+
+/* RESULT SCREEN */
+
+function showResult() {
+
+    quizContent.style.display = "none";
+    resultScreen.style.display = "block";
+
+    document.getElementById("score").textContent =
+        score + " / " + questions.length;
+
+    const percentage = score / questions.length * 100;
+
+    let message = "";
+
+    if (percentage === 100) {
+
+        message =
+            "Wah jaan! Saare answers sahi! Tumne humari story ki har chhoti baat dil se yaad rakhi. Tum meri favourite memory ho. 🥹❤️";
+
+    } else if (percentage >= 70) {
+
+        message =
+            "Wow baby! Bahut achha score! Kuch answers miss hue, lekin humari story ke moments toh hamesha dil mein hain. 💗";
+
+    } else if (percentage >= 40) {
+
+        message =
+            "Achha try kiya, sweetheart! Kuch yaadein dobara yaad karni padengi. Chalo, aur beautiful memories banate hain. 🌷";
+
+    } else {
+
+        message =
+            "Oho jaan! Thoda aur yaad karna padega. Score se kya hota hai, humari story toh dil mein likhi hai. ❤️";
+    }
+
+    document.getElementById("resultMessage").textContent = message;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+/* RESTART */
+
+document.getElementById("restartBtn").addEventListener("click", () => {
+
+    clearTimeout(feedbackTimer);
+    hideAnswerReaction();
+
+    currentQuestion = 0;
+    score = 0;
+    selectedAnswer = null;
+    answered = false;
+
+    resultScreen.style.display = "none";
+    quizContent.style.display = "block";
+
+    loadQuestion();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+/* START */
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
