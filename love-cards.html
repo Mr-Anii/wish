@@ -1,0 +1,1511 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Universe of You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse at 50% 40%, #482044 0%, transparent 45%),
+        radial-gradient(ellipse at 15% 15%, #43162f 0%, transparent 35%),
+        linear-gradient(145deg, #0c0714, #1b0d25, #100916);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* BACKGROUND */
+
+.ambient {
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: .2;
+    pointer-events: none;
+    z-index: 0;
+    animation: ambientMove 12s infinite alternate ease-in-out;
+}
+
+.ambient.a {
+    background: #ff368e;
+    top: 5%;
+    left: -170px;
+}
+
+.ambient.b {
+    background: #8e4cff;
+    right: -160px;
+    bottom: 5%;
+    animation-delay: 4s;
+}
+
+@keyframes ambientMove {
+    to {
+        transform: translate(100px, 80px) scale(1.35);
+    }
+}
+
+/* STARS */
+
+#stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ffe5f1;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ffb1d0;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: .15;
+        transform: scale(.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.8);
+    }
+}
+
+/* FLOATING PARTICLES */
+
+#particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    bottom: -30px;
+    color: #ff9fc9;
+    text-shadow: 0 0 15px #ff5b9e;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    15% {
+        opacity: .8;
+    }
+    85% {
+        opacity: .6;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* NAVIGATION */
+
+.topbar {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 22px 7%;
+}
+
+.brand {
+    font-family: 'Great Vibes', cursive;
+    color: #ffc4dd;
+    font-size: 29px;
+    text-shadow: 0 0 15px #ff5b9e;
+}
+
+.back-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    padding: 10px 20px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 30px;
+    background: rgba(255,255,255,.05);
+    transition: .3s;
+    white-space: nowrap;
+}
+
+.back-btn:hover {
+    background: #e94f91;
+    box-shadow: 0 0 20px #e94f91;
+}
+
+/* MUSIC BUTTON */
+
+.music-control {
+    position: fixed;
+    z-index: 30;
+    right: 18px;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,190,220,.5);
+    background: rgba(50,18,46,.88);
+    color: #ffd0e3;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255,80,150,.3);
+    backdrop-filter: blur(12px);
+    transition: .3s;
+}
+
+.music-control:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255,80,150,.7);
+}
+
+/* INTRO */
+
+.hero {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 65px 20px 25px;
+}
+
+.hero small {
+    color: #f6c987;
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+.hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(58px, 10vw, 100px);
+    font-weight: 400;
+    color: #ffd2e5;
+    text-shadow: 0 0 30px rgba(255,91,158,.6);
+    margin-top: 15px;
+    animation: titleIn 1.5s both;
+}
+
+.hero h1 span {
+    color: #ff77a8;
+}
+
+.hero p {
+    color: #d9bbd0;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+@keyframes titleIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* INSTRUCTIONS */
+
+.instruction {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin: 35px 15px 10px;
+}
+
+.instruction p {
+    color: #e9c9dc;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.instruction span {
+    display: inline-block;
+    color: #ff8ab7;
+    margin-top: 10px;
+    font-size: 22px;
+    animation: tap 1.3s infinite;
+}
+
+@keyframes tap {
+    50% {
+        transform: translateY(7px);
+    }
+}
+
+/* GALAXY */
+
+.galaxy {
+    position: relative;
+    z-index: 2;
+    max-width: 950px;
+    min-height: 660px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ORBIT RINGS */
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(255,160,205,.16);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.orbit.one {
+    width: 440px;
+    height: 440px;
+    animation: orbitSpin 30s linear infinite;
+}
+
+.orbit.two {
+    width: 590px;
+    height: 590px;
+    border-style: dashed;
+    border-color: rgba(255,160,205,.12);
+    animation: orbitSpin 45s linear infinite reverse;
+}
+
+@keyframes orbitSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* CENTRAL HEART */
+
+.core {
+    position: relative;
+    z-index: 3;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background:
+        radial-gradient(circle, rgba(255,119,170,.3), rgba(120,35,95,.15) 65%, transparent);
+    border: 1px solid rgba(255,180,215,.35);
+    box-shadow:
+        0 0 30px rgba(255,80,150,.2),
+        inset 0 0 30px rgba(255,80,150,.15);
+    animation: heartGlow 3s infinite ease-in-out;
+}
+
+.core .heart {
+    font-size: 55px;
+    color: #ff82b4;
+    text-shadow: 0 0 25px #ff3d8e;
+    animation: heartBeat 1.4s infinite;
+}
+
+.core small {
+    font-size: 9px;
+    color: #ffd0e2;
+    letter-spacing: 2px;
+    margin-top: 8px;
+}
+
+@keyframes heartGlow {
+    50% {
+        box-shadow:
+            0 0 60px rgba(255,80,150,.4),
+            inset 0 0 45px rgba(255,80,150,.25);
+    }
+}
+
+@keyframes heartBeat {
+    0%,100% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.2);
+    }
+    30% {
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.12);
+    }
+}
+
+/* FOUR MESSAGE ORBS */
+
+.orb {
+    position: absolute;
+    z-index: 4;
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,210,230,.55);
+    background: linear-gradient(145deg, rgba(255,143,190,.28), rgba(91,36,91,.55));
+    box-shadow:
+        0 0 25px rgba(255,91,158,.2),
+        inset 0 0 20px rgba(255,255,255,.08);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    color: white;
+    transition: .45s;
+    animation: orbFloat 4s infinite ease-in-out;
+}
+
+.orb:nth-child(even) {
+    animation-delay: -2s;
+}
+
+.orb:hover {
+    transform: scale(1.17) !important;
+    background: linear-gradient(145deg, #ff8cba, #a43c78);
+    box-shadow: 0 0 40px rgba(255,91,158,.75);
+}
+
+.orb .symbol {
+    font-size: 34px;
+    filter: drop-shadow(0 0 10px #ff8bb8);
+}
+
+.orb .label {
+    color: #ffe3ef;
+    font-size: 9px;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.orb.opened {
+    border-color: #ffd48e;
+    box-shadow: 0 0 35px rgba(246,201,135,.65);
+}
+
+.orb.opened::after {
+    content: "✓";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 23px;
+    height: 23px;
+    display: grid;
+    place-items: center;
+    background: #f6c987;
+    color: #42172f;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@keyframes orbFloat {
+    0%,100% {
+        margin-top: 0;
+    }
+    50% {
+        margin-top: -14px;
+    }
+}
+
+/* ORB POSITIONS */
+
+.orb.o1 {
+    top: 12%;
+    left: 18%;
+}
+
+.orb.o2 {
+    top: 12%;
+    right: 18%;
+}
+
+.orb.o3 {
+    bottom: 12%;
+    left: 18%;
+}
+
+.orb.o4 {
+    bottom: 12%;
+    right: 18%;
+}
+
+/* MESSAGE OVERLAY */
+
+.message-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    background: rgba(8,3,12,.86);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+}
+
+.message-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.message-box {
+    position: relative;
+    width: min(100%, 600px);
+    max-height: min(86vh, 760px);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255,190,220,.4);
+    border-radius: 25px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255,100,160,.2), transparent 60%),
+        linear-gradient(145deg, #32152f, #170d21);
+    box-shadow: 0 0 65px rgba(255,70,145,.25);
+    transform: translateY(40px) scale(.9);
+    transition: .5s;
+    overflow: hidden;
+}
+
+.message-overlay.active .message-box {
+    transform: translateY(0) scale(1);
+}
+
+.message-box::before {
+    content: "✧";
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    color: #f6c987;
+    font-size: 30px;
+    animation: twinkle 2s infinite alternate;
+    pointer-events: none;
+}
+
+.message-box::after {
+    content: "✧";
+    position: absolute;
+    bottom: 75px;
+    right: 20px;
+    color: #f6c987;
+    font-size: 30px;
+    animation: twinkle 2s infinite alternate;
+    pointer-events: none;
+}
+
+/* TOP PART OF OPEN CARD */
+
+.message-head {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 35px 24px 15px;
+}
+
+.message-icon {
+    font-size: 42px;
+    filter: drop-shadow(0 0 15px #ff69a4);
+    margin-bottom: 8px;
+}
+
+.message-box h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #ffd0e3;
+    font-size: clamp(36px, 7vw, 48px);
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.message-subtitle {
+    color: #d9bbd0;
+    font-size: 11px;
+    letter-spacing: 1px;
+    line-height: 1.7;
+}
+
+/* SCROLLABLE CARD CONTENT */
+
+.message-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 10px 20px 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #d94f91 rgba(255,255,255,.06);
+}
+
+.message-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.message-content::-webkit-scrollbar-track {
+    background: rgba(255,255,255,.06);
+    border-radius: 20px;
+}
+
+.message-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(#ff8cba, #bd3c79);
+    border-radius: 20px;
+}
+
+/* LOVE / MISS GRID */
+
+.love-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.love-line {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 8px;
+    text-align: center;
+    border: 1px solid rgba(255,180,215,.18);
+    border-radius: 13px;
+    background: linear-gradient(145deg, rgba(255,143,190,.11), rgba(255,255,255,.025));
+    color: #ffe2ef;
+    font-size: 11px;
+    line-height: 1.6;
+    animation: lineReveal .45s both;
+    animation-delay: calc(var(--i) * 8ms);
+    overflow-wrap: anywhere;
+}
+
+.love-line .emoji {
+    flex-shrink: 0;
+    font-size: 15px;
+}
+
+@keyframes lineReveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* KISS EMOJI GRID */
+
+.kiss-grid {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: 5px;
+    padding: 8px 0;
+}
+
+.kiss-item {
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    background: rgba(255,125,180,.08);
+    border: 1px solid rgba(255,180,215,.12);
+    font-size: clamp(15px, 3.5vw, 23px);
+    animation: kissPop .5s both;
+    animation-delay: calc(var(--i) * 5ms);
+    transition: .25s;
+}
+
+.kiss-item:hover {
+    transform: scale(1.2) rotate(-8deg);
+    background: rgba(255,125,180,.2);
+}
+
+@keyframes kissPop {
+    from {
+        opacity: 0;
+        transform: scale(.3) rotate(-15deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+/* FINAL MESSAGE */
+
+.final-love-note {
+    text-align: center;
+    padding: 18px 12px 25px;
+}
+
+.final-love-note .big-emoji {
+    font-size: 50px;
+    display: block;
+    margin-bottom: 18px;
+    animation: heartBeat 1.5s infinite;
+}
+
+.final-love-note p {
+    color: #f8dce9;
+    font-size: 14px;
+    line-height: 2.1;
+    font-weight: 300;
+}
+
+.final-love-note .signature {
+    font-family: 'Great Vibes', cursive;
+    color: #ffb5d2;
+    font-size: 35px;
+    margin-top: 20px;
+}
+
+/* BOTTOM CLOSE AREA */
+
+.message-bottom {
+    flex-shrink: 0;
+    padding: 12px 20px 18px;
+    text-align: center;
+    border-top: 1px solid rgba(255,190,220,.13);
+    background: rgba(15,7,20,.45);
+}
+
+.message-count {
+    color: #f6c987;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.close-card-btn {
+    width: min(100%, 250px);
+    border: none;
+    border-radius: 40px;
+    padding: 13px 25px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff78aa, #bd3c79);
+    box-shadow: 0 0 22px rgba(255,85,155,.35);
+    transition: .3s;
+}
+
+.close-card-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 35px rgba(255,85,155,.7);
+}
+
+/* COMPLETION */
+
+.completion {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 20px auto 100px;
+    padding: 35px 25px;
+    text-align: center;
+    border: 1px solid rgba(255,190,220,.25);
+    border-radius: 25px;
+    background: rgba(255,255,255,.04);
+    backdrop-filter: blur(12px);
+    opacity: .45;
+    transition: .6s;
+}
+
+.completion.unlocked {
+    opacity: 1;
+    box-shadow: 0 0 50px rgba(255,80,150,.2);
+    border-color: rgba(255,190,220,.6);
+}
+
+.completion .big-heart {
+    font-size: 45px;
+    animation: heartBeat 1.5s infinite;
+}
+
+.completion h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    font-weight: 400;
+    color: #ffd0e3;
+    margin: 10px 0;
+}
+
+.completion p {
+    font-size: 12px;
+    line-height: 1.9;
+    color: #d8bfd0;
+}
+
+.progress {
+    width: 100%;
+    height: 5px;
+    background: rgba(255,255,255,.12);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 25px 0 10px;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #ff5b9e, #f6c987);
+    transition: width .6s ease;
+}
+
+.progress-text {
+    font-size: 10px !important;
+    color: #f6c987 !important;
+    letter-spacing: 2px;
+}
+
+/* NEXT */
+
+.next-wrap {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 15px 90px;
+    opacity: .3;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.next-wrap.unlocked {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.next-wrap p {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #d6b8c9;
+    margin-bottom: 25px;
+}
+
+.next-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 35px;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #ff78aa, #bd3c79);
+    box-shadow: 0 0 25px rgba(255,85,155,.4);
+    transition: .4s;
+    animation: buttonPulse 2s infinite;
+}
+
+.next-btn:hover {
+    transform: translateY(-6px) scale(1.06);
+    box-shadow: 0 0 40px rgba(255,85,155,.8);
+}
+
+@keyframes buttonPulse {
+    50% {
+        box-shadow: 0 0 32px rgba(255,85,155,.8);
+    }
+}
+
+footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 25px;
+    color: #a9889d;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* MOBILE */
+
+@media(max-width: 650px) {
+    .topbar {
+        padding: 18px 5%;
+    }
+
+    .brand {
+        font-size: 24px;
+    }
+
+    .hero {
+        padding-top: 50px;
+    }
+
+    .galaxy {
+        min-height: 520px;
+        margin: 10px 5px;
+        transform: scale(.95);
+    }
+
+    .orbit.one {
+        width: 290px;
+        height: 290px;
+    }
+
+    .orbit.two {
+        width: 370px;
+        height: 370px;
+    }
+
+    .core {
+        width: 125px;
+        height: 125px;
+    }
+
+    .core .heart {
+        font-size: 42px;
+    }
+
+    .orb {
+        width: 84px;
+        height: 84px;
+    }
+
+    .orb .symbol {
+        font-size: 26px;
+    }
+
+    .orb .label {
+        font-size: 7px;
+    }
+
+    .orb.o1 {
+        top: 9%;
+        left: 8%;
+    }
+
+    .orb.o2 {
+        top: 9%;
+        right: 8%;
+    }
+
+    .orb.o3 {
+        bottom: 9%;
+        left: 8%;
+    }
+
+    .orb.o4 {
+        bottom: 9%;
+        right: 8%;
+    }
+
+    .message-overlay {
+        padding: 10px;
+    }
+
+    .message-box {
+        max-height: 88vh;
+        border-radius: 20px;
+    }
+
+    .message-head {
+        padding: 28px 18px 12px;
+    }
+
+    .message-icon {
+        font-size: 34px;
+    }
+
+    .message-content {
+        padding: 8px 12px 16px;
+    }
+
+    .love-grid {
+        gap: 7px;
+    }
+
+    .love-line {
+        min-height: 48px;
+        padding: 8px 5px;
+        font-size: 10px;
+        gap: 4px;
+    }
+
+    .love-line .emoji {
+        font-size: 13px;
+    }
+
+    .kiss-grid {
+        gap: 4px;
+    }
+
+    .kiss-item {
+        border-radius: 6px;
+        font-size: clamp(13px, 4vw, 20px);
+    }
+
+    .message-bottom {
+        padding: 10px 14px 14px;
+    }
+
+    .close-card-btn {
+        padding: 12px 20px;
+    }
+
+    .final-love-note p {
+        font-size: 13px;
+    }
+
+    .completion {
+        margin: 20px 15px 70px;
+    }
+}
+
+@media(max-width: 380px) {
+    .orb {
+        width: 72px;
+        height: 72px;
+    }
+
+    .orb .symbol {
+        font-size: 22px;
+    }
+
+    .orb .label {
+        font-size: 6px;
+    }
+
+    .love-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .love-line {
+        min-height: 40px;
+    }
+
+    .kiss-grid {
+        gap: 3px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="ambient a"></div>
+<div class="ambient b"></div>
+<div id="stars"></div>
+<div id="particles"></div>
+
+<!-- MUSIC -->
+<audio id="backgroundMusic" src="music/song2.mp3" loop preload="auto"></audio>
+<button class="music-control" id="musicButton" aria-label="Toggle music">♫</button>
+
+<header class="topbar">
+    <div class="brand">Tabrez & Gufrana</div>
+    <a href="timeline.html" class="back-btn">← Previous Page</a>
+</header>
+
+<section class="hero">
+    <small>A LITTLE SECRET FROM MY HEART</small>
+    <h1>The Universe <span>of You</span></h1>
+    <p>4 CHHOTI SI BAATEIN... SIRF TUMHARE LIYE ♡</p>
+</section>
+
+<div class="instruction">
+    <p>Har glowing star ko touch karo...</p>
+    <span>↓</span>
+</div>
+
+<!-- GALAXY -->
+
+<section class="galaxy">
+
+    <div class="orbit one"></div>
+    <div class="orbit two"></div>
+
+    <div class="core">
+        <div class="heart">♥</div>
+        <small>MY UNIVERSE</small>
+    </div>
+
+    <button class="orb o1" data-index="0">
+        <span class="symbol">💗</span>
+        <span class="label">01 · I LOVE YOU</span>
+    </button>
+
+    <button class="orb o2" data-index="1">
+        <span class="symbol">🥺</span>
+        <span class="label">02 · I MISS YOU</span>
+    </button>
+
+    <button class="orb o3" data-index="2">
+        <span class="symbol">😘</span>
+        <span class="label">03 · KISSES</span>
+    </button>
+
+    <button class="orb o4" data-index="3">
+        <span class="symbol">💌</span>
+        <span class="label">04 · JUST US</span>
+    </button>
+
+</section>
+
+<!-- MESSAGE POPUP -->
+
+<div class="message-overlay" id="messageOverlay">
+    <div class="message-box">
+
+        <div class="message-head">
+            <div class="message-icon" id="messageIcon">💗</div>
+            <h2 id="messageTitle">A Little Secret</h2>
+            <p class="message-subtitle" id="messageSubtitle">
+                A little piece of my heart, just for you
+            </p>
+        </div>
+
+        <div class="message-content" id="messageContent">
+            <!-- Content generated by JavaScript -->
+        </div>
+
+        <div class="message-bottom">
+            <div class="message-count" id="messageCount">CARD 01 / 04</div>
+            <button class="close-card-btn" id="closeBtn">Close Card ♡</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- COMPLETION -->
+
+<section class="completion" id="completion">
+    <div class="big-heart">💗</div>
+    <h2>Saari baatein tumhare naam...</h2>
+    <p>
+        Har card mein ek chhoti si feeling thi.
+        Aur har feeling ka ek hi reason hai... TUM.
+    </p>
+
+    <div class="progress">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <p class="progress-text" id="progressText">0 / 4 LOVE CARDS OPENED</p>
+</section>
+
+<section class="next-wrap" id="nextWrap">
+    <p>AB EK CHHOTI SI GAME KHELEIN? ♡</p>
+    <a href="letter.html" class="next-btn">
+        Let's Play Together <span>♡</span>
+    </a>
+</section>
+
+<footer>
+    MADE WITH ALL MY LOVE · TABREZ & GUFRANA ♥
+</footer>
+
+<script>
+/* CREATE STARS */
+
+const stars = document.getElementById("stars");
+
+for (let i = 0; i < 100; i++) {
+    const star = document.createElement("span");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 3 + "s";
+    star.style.opacity = Math.random();
+    stars.appendChild(star);
+}
+
+/* FLOATING HEARTS */
+
+const particles = document.getElementById("particles");
+const symbols = ["♡", "♥", "✦", "✧", "❀", "💗"];
+
+for (let i = 0; i < 30; i++) {
+    const item = document.createElement("span");
+    item.className = "particle";
+    item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    item.style.left = Math.random() * 100 + "%";
+    item.style.animationDuration = (8 + Math.random() * 12) + "s";
+    item.style.animationDelay = Math.random() * 10 + "s";
+    item.style.fontSize = (12 + Math.random() * 17) + "px";
+    particles.appendChild(item);
+}
+
+/* MUSIC CONTINUITY */
+
+const audio = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+const MUSIC_KEY = "ourStoryMusicTime";
+
+let musicStarted = false;
+
+function saveMusicTime() {
+    if (Number.isFinite(audio.currentTime)) {
+        sessionStorage.setItem(MUSIC_KEY, String(audio.currentTime));
+    }
+}
+
+function updateMusicButton() {
+    musicButton.textContent = audio.paused ? "♫" : "♪";
+    musicButton.title = audio.paused ? "Play music" : "Pause music";
+}
+
+function startMusicFromSavedTime() {
+    if (musicStarted) return;
+    musicStarted = true;
+
+    const savedTime = parseFloat(sessionStorage.getItem(MUSIC_KEY) || "0");
+
+    if (
+        Number.isFinite(savedTime) &&
+        savedTime >= 0 &&
+        Number.isFinite(audio.duration) &&
+        savedTime < audio.duration
+    ) {
+        audio.currentTime = savedTime;
+    }
+
+    audio.play()
+        .then(updateMusicButton)
+        .catch(updateMusicButton);
+}
+
+audio.addEventListener("loadedmetadata", startMusicFromSavedTime);
+audio.addEventListener("timeupdate", saveMusicTime);
+audio.addEventListener("play", updateMusicButton);
+audio.addEventListener("pause", updateMusicButton);
+window.addEventListener("pagehide", saveMusicTime);
+
+audio.load();
+
+musicButton.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play().then(updateMusicButton).catch(updateMusicButton);
+    } else {
+        audio.pause();
+        saveMusicTime();
+        updateMusicButton();
+    }
+});
+
+/* RANDOMIZER */
+
+function shuffleArray(array) {
+    const copy = [...array];
+
+    for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+
+    return copy;
+}
+
+/* LOVE YOU - 100 DIFFERENTLY MIXED LINES */
+
+const loveNames = [
+    "jaan",
+    "baby",
+    "janu",
+    "sweetheart",
+    "baccha",
+    "husband jiii"
+];
+
+const loveEmojis = [
+    "💗", "❤️", "💕", "💖", "💘", "💞",
+    "😘", "🥰", "😍", "🌹", "🫶", "💋",
+    "✨", "🧸", "💓", "💝", "❤️‍🔥", "💌"
+];
+
+function createLoveLines() {
+    const lines = [];
+
+    for (let i = 0; i < 100; i++) {
+        const name = loveNames[i % loveNames.length];
+        const emoji = loveEmojis[Math.floor(Math.random() * loveEmojis.length)];
+
+        lines.push({
+            text: `I love you ${name}`,
+            emoji: emoji
+        });
+    }
+
+    return shuffleArray(lines);
+}
+
+/* I MISS YOU - 100 LINES */
+
+const missEmojis = [
+    "🥺", "💔", "😢", "🫂", "💗", "💕",
+    "🌙", "💌", "😭", "🫶", "💞", "🥹",
+    "🧸", "😘", "❤️", "✨", "💓", "🌹"
+];
+
+function createMissLines() {
+    const lines = [];
+
+    for (let i = 0; i < 100; i++) {
+        const name = loveNames[i % loveNames.length];
+        const emoji = missEmojis[Math.floor(Math.random() * missEmojis.length)];
+
+        lines.push({
+            text: `I miss you ${name}`,
+            emoji: emoji
+        });
+    }
+
+    return shuffleArray(lines);
+}
+
+/* KISS EMOJIS - 100 */
+
+const kissEmojis = [
+    "😘", "💋", "😚", "😙", "😗",
+    "🥰", "💏", "💋", "😘", "💗"
+];
+
+/* MESSAGE ELEMENTS */
+
+const overlay = document.getElementById("messageOverlay");
+const closeBtn = document.getElementById("closeBtn");
+const messageIcon = document.getElementById("messageIcon");
+const messageTitle = document.getElementById("messageTitle");
+const messageSubtitle = document.getElementById("messageSubtitle");
+const messageContent = document.getElementById("messageContent");
+const messageCount = document.getElementById("messageCount");
+
+const orbButtons = document.querySelectorAll(".orb");
+
+let openedMessages = new Set();
+
+/* BUILD CONTENT FOR EACH CARD */
+
+function createLoveGrid(lines) {
+    const grid = document.createElement("div");
+    grid.className = "love-grid";
+
+    lines.forEach((line, index) => {
+        const item = document.createElement("div");
+        item.className = "love-line";
+        item.style.setProperty("--i", index);
+
+        const emoji = document.createElement("span");
+        emoji.className = "emoji";
+        emoji.textContent = line.emoji;
+
+        const text = document.createElement("span");
+        text.textContent = line.text;
+
+        item.appendChild(emoji);
+        item.appendChild(text);
+        grid.appendChild(item);
+    });
+
+    return grid;
+}
+
+function createKissGrid() {
+    const grid = document.createElement("div");
+    grid.className = "kiss-grid";
+
+    for (let i = 0; i < 100; i++) {
+        const item = document.createElement("div");
+        item.className = "kiss-item";
+        item.style.setProperty("--i", i);
+        item.textContent = kissEmojis[Math.floor(Math.random() * kissEmojis.length)];
+        item.setAttribute("aria-label", "Kiss " + (i + 1));
+        grid.appendChild(item);
+    }
+
+    return grid;
+}
+
+function createFinalMessage() {
+    const wrapper = document.createElement("div");
+    wrapper.className = "final-love-note";
+
+    wrapper.innerHTML = `
+        <span class="big-emoji">💗🫂💋</span>
+        <p>
+            Jaan, tum meri life ka woh beautiful part ho
+            jiske bina har khushi thodi incomplete lagti hai.
+            <br><br>
+            Tumhari smile meri favourite hai,
+            tumhara hug mera sukoon,
+            aur tumhara saath meri sabse pyari wish.
+            <br><br>
+            Chahe kitni bhi doori ho,
+            mera dil hamesha tumhare paas rahega.
+            <br><br>
+            I love you more than these little words can ever say.
+            <br>
+            I miss you more than you can imagine.
+            <br><br>
+            Bas aise hi mera haath pakad kar rehna,
+            husband jiii. ❤️
+        </p>
+        <div class="signature">Forever yours ♡</div>
+        <div style="font-size:25px;margin-top:15px;">
+            💞 🌹 🥹 💋 ♾️
+        </div>
+    `;
+
+    return wrapper;
+}
+
+/* CARD DETAILS */
+
+const cardDetails = [
+    {
+        icon: "💗",
+        title: "100 Times I Love You",
+        subtitle: "Har baar alag naam... par feeling sirf tumhare liye",
+        count: "CARD 01 / 04",
+        content: createLoveGrid(createLoveLines())
+    },
+    {
+        icon: "🥺",
+        title: "100 Times I Miss You",
+        subtitle: "Har miss you ke saath thoda sa pyaar aur thodi si yaad",
+        count: "CARD 02 / 04",
+        content: createLoveGrid(createMissLines())
+    },
+    {
+        icon: "😘",
+        title: "100 Little Kisses",
+        subtitle: "Ek-ek kiss tumhare liye... lots of love, jaan",
+        count: "CARD 03 / 04",
+        content: createKissGrid()
+    },
+    {
+        icon: "💌",
+        title: "Just You & Me",
+        subtitle: "A little message from my heart",
+        count: "CARD 04 / 04",
+        content: createFinalMessage()
+    }
+];
+
+/* OPEN CARD */
+
+function openMessage(index) {
+    const card = cardDetails[index];
+
+    messageIcon.textContent = card.icon;
+    messageTitle.textContent = card.title;
+    messageSubtitle.textContent = card.subtitle;
+    messageCount.textContent = card.count;
+
+    messageContent.replaceChildren(card.content);
+    messageContent.scrollTop = 0;
+
+    overlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    openedMessages.add(index);
+    orbButtons[index].classList.add("opened");
+
+    updateProgress();
+}
+
+/* CLOSE CARD */
+
+function closeMessage() {
+    overlay.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+orbButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        openMessage(Number(button.dataset.index));
+    });
+});
+
+closeBtn.addEventListener("click", closeMessage);
+
+overlay.addEventListener("click", event => {
+    if (event.target === overlay) {
+        closeMessage();
+    }
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        closeMessage();
+    }
+});
+
+/* PROGRESS AND NEXT PAGE UNLOCK */
+
+function updateProgress() {
+    const count = openedMessages.size;
+    const percentage = (count / cardDetails.length) * 100;
+
+    document.getElementById("progressFill").style.width = percentage + "%";
+
+    document.getElementById("progressText").textContent =
+        `${count} / 4 LOVE CARDS OPENED`;
+
+    if (count === cardDetails.length) {
+        document.getElementById("completion").classList.add("unlocked");
+        document.getElementById("nextWrap").classList.add("unlocked");
+
+        setTimeout(() => {
+            document.getElementById("completion").scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }, 600);
+    }
+}
+</script>
+
+</body>
+</html>
